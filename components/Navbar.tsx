@@ -1,15 +1,16 @@
 import Link from "next/link"
+import styles from '../styles/Navbar.module.scss';
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className="w-full h-full flex justify-between items-center">
       <div>
         webDev
       </div>
-      <div>
-        <Link href="/">Home</Link>
-        <Link href="/posts">Posts</Link>
-        <Link href="/contacts">Contacts</Link>
+      <div className="h-full">
+        <Link className={styles.link} href="/">Home</Link>
+        <Link className={styles.link} href="/posts">Posts</Link>
+        <Link className={styles.link} href="/contacts">Contacts</Link>
       </div>
     </nav>
   )

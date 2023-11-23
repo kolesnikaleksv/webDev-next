@@ -1,0 +1,8 @@
+.link {
+  @apply h-full inline-flex items-center py-0 px-2.5 uppercase text-white no-underline;
+
+  &.active,
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}

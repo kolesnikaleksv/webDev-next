@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const NotFound = () => {
   return (
-    <main className="text-center">
+    <main className="text-center flex-1">
       <Heading tag='' text="404" />
       <Heading tag='' text="Something is going wrong..." />
       <h2 className="text-3xl">There was a problem</h2>
