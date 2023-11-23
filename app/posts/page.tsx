@@ -1,5 +1,10 @@
+import Heading, {HeadingProps} from "@/components/Heading";
+
 const Posts = () => {
-  return <h1>Posts page</h1>
+  const headingProps: HeadingProps = {
+    text: "Posts page"
+  }
+  return  <Heading {...headingProps}/>
 }
 
 export default Posts;

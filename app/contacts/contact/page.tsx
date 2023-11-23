@@ -1,9 +1,12 @@
-import Heading from "@/components/Heading";
+import Heading, {HeadingProps} from "@/components/Heading";
 
 const Contact = () => {
+  const headingProps: HeadingProps = {
+    text: 'Contact page'
+  }
   return (
     <>
-      <Heading tag="" text="Contact page" />
+      <Heading {...headingProps} />
     </>
   )
 }
