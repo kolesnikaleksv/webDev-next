@@ -1,3 +1,6 @@
+'use client'
+import { usePathname } from "next/navigation"; 
+import Image from "next/image";
 import Link from "next/link"
 import styles from '../styles/Navbar.module.scss';
 
@@ -14,15 +17,21 @@ const navigation: NavigationItem[] = [
 ]
 
 const Navbar = () => {
+  const pathName = usePathname();
   return (
     <nav className="w-full h-full flex justify-between items-center">
       <div>
-        webDev
+        <Image
+          src="/logo.png"
+          alt="webDev"
+          width={60}
+          height={60}
+        />
       </div>
       <div className="h-full">
         {
           navigation.map(({id, title, path}) => (
-            <Link key={id} className={styles.link} href={path}>{title}</Link>
+            <Link key={id} className={`${styles.link} ${pathName === path ? styles.active: ''}`} href={path}>{title}</Link>
           ))
         }
       </div>

@@ -1,7 +1,17 @@
-import Heading, {HeadingProps} from "@/components/Heading";
+'use client'
+import { useEffect } from "react";
+import { useRouter } from "next/navigation"
+import Heading from "@/components/Heading";
 import Link from "next/link";
 
 const NotFound: React.FC = () => {
+  const router = useRouter();
+  useEffect(() => {
+    setTimeout(() => {
+      router.push('/');
+    }, 3000)
+  })
+
   return (
     <main className="text-center flex-1">
       <Heading tag='h1' text="404" />
