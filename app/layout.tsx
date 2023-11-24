@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={montserratAlternates.className}>
         <Layout>
-          <div className='flex-1'>
+          <div className='flex-1 p-12'>
             {children}
           </div>
         </Layout>
