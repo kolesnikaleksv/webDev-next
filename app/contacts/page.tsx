@@ -1,10 +1,12 @@
 import Heading, {HeadingProps} from "@/components/Heading";
 import type { Metadata } from 'next'
+import Link from "next/link";
 
 interface ContactsProps {
   id: number;
   name: string;
   email: string;
+  username: string;
 }
 
 export const metadata: Metadata = {
@@ -24,8 +26,8 @@ const Contacts = async () => {
       <Heading {...headingProps} />
       <ul>
         {
-          data && data.map(({id, name, email}) => (
-            <li key={id}>{name}<strong>({email})</strong></li>
+          data && data.map(({id, name, email, username}) => (
+            <li key={id}>{name}<Link href={`/contacts/${username}`}>({email})</Link></li>
           ))
         }
       </ul>
