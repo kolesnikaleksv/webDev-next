@@ -6,7 +6,6 @@ interface ContactsProps {
   id: number;
   name: string;
   email: string;
-  username: string;
 }
 
 export const metadata: Metadata = {
@@ -14,9 +13,17 @@ export const metadata: Metadata = {
   description: 'Page for contacts',
 }
 
-const Contacts = async () => {
+const getStaticData = async () => {
   const staticData = await fetch(`https://jsonplaceholder.typicode.com/users`, { cache: 'force-cache' });
   const data: ContactsProps[] = await staticData.json();
+
+  return {
+    props: {contacts: data}
+  }
+}
+
+const Contacts = async () => {
+  const data = await getStaticData()
 
   const headingProps: HeadingProps = {
     text: "List of contacts:"
@@ -26,8 +33,8 @@ const Contacts = async () => {
       <Heading {...headingProps} />
       <ul>
         {
-          data && data.map(({id, name, email, username}) => (
-            <li key={id}>{name}<Link href={`/contacts/${username}`}>({email})</Link></li>
+          data && data.props.contacts.map(({id, name, email}) => (
+            <li key={id}>{name}<Link href={`/contacts/${id}`}>({email})</Link></li>
           ))
         }
       </ul>
