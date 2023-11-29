@@ -1,14 +1,19 @@
 import type { Metadata } from 'next'
 import Layout from '@/components/Layout'
 import { Montserrat_Alternates } from 'next/font/google'
+// import { Lexend } from 'next/font/google';
 
 import './globals.css'
+import '../styles/globalicon.scss'
 
 const montserratAlternates = Montserrat_Alternates({
   weight: '300',
   subsets: ['latin'],
   display: 'swap'
 })
+
+// class for connecting icon, but it doesnt need when we already has one
+// const lexend = Lexend({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',

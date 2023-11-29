@@ -1,10 +1,26 @@
 import Image from 'next/image';
 import React from 'react';
 import Heading, { HeadingProps } from '@/components/Heading';
+import Social from '@/components/Social';
 
 interface HomeProps {}
 
-const Home: React.FC<HomeProps> = () => {
+export interface SocialInfo {
+  id: number;
+  icon: string;
+  path: string;
+}
+
+const getSocialInfo = async () => {
+  const staticData = await fetch(`http://localhost:3000/api/`);
+  const data = await staticData.json();
+
+  return data
+}
+
+const Home: React.FC<HomeProps> = async () => {
+  const socialData  = await getSocialInfo()
+ 
   const headingProps: HeadingProps = {
     tag: 'h1',
     text: 'Next.js Application',
@@ -21,6 +37,7 @@ const Home: React.FC<HomeProps> = () => {
         placeholder='empty'
         // priority={false}
       />
+      <Social social={socialData}/>
     </div>
   );
 };
