@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import React from 'react';
-import Heading, { HeadingProps } from '@/components/Heading';
-import Social from '@/components/Social';
+import Image from 'next/image'
+import React from 'react'
+import Heading, { HeadingProps } from '@/components/Heading'
+import Social from '@/components/Social'
 
 interface HomeProps {}
 
@@ -12,7 +12,7 @@ export interface SocialInfo {
 }
 
 const getSocialInfo = async () => {
-  const staticData = await fetch(`http://localhost:3000/api/`);
+  const staticData = await fetch("http://localhost:3000/api");
   const data = await staticData.json();
 
   return data

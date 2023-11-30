@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link"
 import styles from '../styles/Navbar.module.scss';
+import {FC} from 'react'
 
 interface NavigationItem {
   id: number;
@@ -16,7 +17,7 @@ const navigation: NavigationItem[] = [
   {id: 3, title: 'Contacts', path: '/contacts'}
 ]
 
-const Navbar = () => {
+const Navbar:FC = () => {
   const pathName = usePathname();
   return (
     <nav className="w-full h-full flex justify-between items-center">

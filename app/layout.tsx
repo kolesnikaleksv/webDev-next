@@ -3,7 +3,7 @@ import Layout from '@/components/Layout'
 import { Montserrat_Alternates } from 'next/font/google'
 // import { Lexend } from 'next/font/google';
 
-import './globals.css'
+import '../styles/globals.scss'
 import '../styles/globalicon.scss'
 
 const montserratAlternates = Montserrat_Alternates({

@@ -1,8 +1,15 @@
-import Heading from "./Heading";
-import { ContactProps } from "@/app/contacts/[id]/page";
+import Heading from "./Heading"
+import { contactType } from "@/type"
+import {FC} from 'react'
 
-const ContactInfo = ({contact}:{contact: ContactProps}) => {
-  const {name, email, id} = contact || {};
+type contactInfoProps = {
+  contact: contactType
+}
+
+const ContactInfo:FC<contactInfoProps> = ({contact}) => {
+  const {name, email, address} = contact || {};
+  const {street, suit, city} = address || {};
+
   if(!contact) {
     return <Heading tag="h3" text="There is no information" />
   }
@@ -13,6 +20,10 @@ const ContactInfo = ({contact}:{contact: ContactProps}) => {
       <div>
         <strong>Email: </strong>
         {email}
+      </div>
+      <div>
+        <strong>Address: </strong>
+        {`${street}, ${suit}, ${city}`}
       </div>
     </>
   )
